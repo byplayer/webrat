@@ -1,6 +1,6 @@
 require "sinatra/base"
 
-class SampleApp < Sinatra::Default
+class SampleApp < Sinatra::Base
   get "/" do
     "Hello World"
   end
