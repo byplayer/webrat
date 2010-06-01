@@ -29,7 +29,7 @@ class SampleApp < Sinatra::Base
     EOS
   end
 
-  put "/form" do
+  post "/form" do
     "Welcome #{params[:email]}"
   end
 end
