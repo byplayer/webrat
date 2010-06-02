@@ -39,6 +39,27 @@ module Webrat #:nodoc:
       @response = mechanize.post(url, post_data)
     end
 
+    def put(url, data, headers_argument_not_used = nil)
+      put_data = data.inject({}) do |memo, param|
+        case param
+        when Hash
+          param.each {|attribute, value| memo[attribute] = value }
+          memo
+        when Array
+          case param.last
+          when Hash
+            param.last.each {|attribute, value| memo["#{param.first}[#{attribute}]"] = value }
+          else
+            memo[param.first] = param.last
+          end
+          memo
+        when String
+          param
+        end
+      end
+      @response = mechanize.put(url, put_data)
+    end
+
     def response_body
       @response.content
     end
