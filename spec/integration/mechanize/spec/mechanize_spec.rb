@@ -33,4 +33,9 @@ describe "Webrat's Mechanize mode" do
     response.should contain("putted")
     response.should contain("put data")
   end
+
+  it "should delete" do
+    response = visit("http://#{TEST_HOST}/delete_test", :delete)
+    response.should contain("deleted")
+  end
 end
