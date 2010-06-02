@@ -23,9 +23,8 @@ describe "Webrat's Mechanize mode" do
   end
 
   it "should not follow external redirects" do
-    pending do
-      response = visit("http://localhost:9292/external_redirect")
-      response.should contain("Foo")
-    end
+    response = visit("http://#{TEST_HOST}/external_redirect")
+    response.uri.to_s.should == "http://#{TEST_HOST}/external_redirect"
+    response.header['location'].should == "http://example.test/"
   end
 end
