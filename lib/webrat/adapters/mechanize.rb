@@ -60,6 +60,10 @@ module Webrat #:nodoc:
       @response = mechanize.put(url, put_data)
     end
 
+    def delete(url, data, headers_argument_not_used = nil)
+      @response = mechanize.delete(url, data)
+    end
+
     def response_body
       @response.content
     end
