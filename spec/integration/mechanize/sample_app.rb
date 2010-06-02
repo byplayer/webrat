@@ -32,4 +32,8 @@ class SampleApp < Sinatra::Base
   post "/form" do
     "Welcome #{params[:email]}"
   end
+
+  put "/put_test" do
+    "putted: #{request.body.read}"
+  end
 end
