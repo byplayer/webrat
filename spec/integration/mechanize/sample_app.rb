@@ -10,7 +10,7 @@ class SampleApp < Sinatra::Base
   end
 
   get "/external_redirect" do
-    redirect "http://example.tst/"
+    redirect "http://example.test/"
   end
 
   get "/redirected" do
