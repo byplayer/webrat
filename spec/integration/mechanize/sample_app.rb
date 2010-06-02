@@ -36,4 +36,8 @@ class SampleApp < Sinatra::Base
   put "/put_test" do
     "putted: #{request.body.read}"
   end
+
+  delete "/delete_test" do
+    "deleted"
+  end
 end
