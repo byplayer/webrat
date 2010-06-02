@@ -27,4 +27,10 @@ describe "Webrat's Mechanize mode" do
     response.uri.to_s.should == "http://#{TEST_HOST}/external_redirect"
     response.header['location'].should == "http://example.test/"
   end
+
+  it "should put data" do
+    response = visit("http://#{TEST_HOST}/put_test", :put, "put data")
+    response.should contain("putted")
+    response.should contain("put data")
+  end
 end
